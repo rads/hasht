@@ -1,35 +1,12 @@
-# Hashp
+# rads.hasht
 
-Hashp is a better `prn` for debugging Clojure code. Inspired by
-projects like [Spyscope][], Hashp (ab)uses data readers to make it
-easier to get useful debugging data sent to STDOUT.
+This is a fork of [`hashp`](https://github.com/weavejester/hashp) which includes the `#t` reader tag to call `tap>` in addition to printing.
 
-[spyscope]: https://github.com/dgrnbrg/spyscope
-
-## Usage
-
-Once installed, you can add `#p` in front of any form you wish to
-print:
-
-```clojure
-(ns example.core)
-
-(defn mean [xs]
-  (/ (double #p (reduce + xs)) #p (count xs)))
-```
-
-It's faster to type than `(prn ...)`, returns the original result, and
-produces more useful output by printing the original form, function
-and line number:
-
-```
-user=> (mean [1 4 5 2])
-#p[example.core/mean:4] (reduce + xs) => 12
-#p[example.core/mean:4] (count xs) => 4
-3.0
-```
+The original library was written by [@weavejester](https://github.com/weavejester) and the [PR for `#t`](https://github.com/weavejester/hashp/pull/16) was provided by [@PEZ](https://github.com/PEZ).
 
 ## Install
+
+Installation is the same as `hashp` except using `rads/hasht` as the dependency.
 
 ### Leiningen
 
@@ -37,7 +14,7 @@ Add the following to `~/.lein/profiles.clj`:
 
 ```edn
 {:user
- {:dependencies [[hashp "0.2.1"]]
+ {:dependencies [[rads/hasht "0.2.1"]]
   :injections [(require 'hashp.core)]}}
 ```
 
@@ -46,7 +23,7 @@ Add the following to `~/.lein/profiles.clj`:
 Add the following to `~/.boot/profile.boot`:
 
 ```clojure
-(set-env! :dependencies #(conj % '[hashp "0.2.1"]))
+(set-env! :dependencies #(conj % '[rads/hasht "0.2.1"]))
 
 (require 'hashp.core)
 (boot.core/load-data-readers!)
@@ -56,7 +33,7 @@ Add the following to `~/.boot/profile.boot`:
 
 Add the following to `shadow-cljs.edn`:
 ```clojure
-{:dependencies [hashp "0.2.1"]
+{:dependencies [rads/hasht "0.2.1"]
  :builds {:app {:devtools {:preloads [hashp.core]}}}}
 ```
 
@@ -64,16 +41,10 @@ Or alternatively via `~/.shadow-cljs/config.edn` and `--config-merge`:
 
 `~/.shadow-cljs/config.edn`:
 ```clojure
-{:dependencies [[hashp "0.2.1"]]}
+{:dependencies [[rads/hasht "0.2.1"]]}
 ```
 
 Run:
 ```
 shadow-cljs watch app --config-merge '{:devtools {:preloads [hashp.core]}}'
 ```
-
-## License
-
-Copyright © 2021 James Reeves
-
-Released under the MIT license.
