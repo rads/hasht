@@ -1,6 +1,6 @@
-(defproject hashp "0.2.1"
+(defproject rads/hasht "0.2.1"
   :description "A better \"prn\" for debugging"
-  :url "https://github.com/weavejester/hashp"
+  :url "https://github.com/rads/hasht"
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.10.2"]
