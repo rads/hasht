@@ -1,4 +1,4 @@
-(defproject rads/hasht "0.2.1-alpha"
+(defproject com.github.rads/hasht "0.2.1-alpha"
   :description "A better \"prn\" for debugging"
   :url "https://github.com/rads/hasht"
   :license {:name "The MIT License"
