@@ -61,17 +61,20 @@
   (let [orig-form (walk/postwalk hide-p-form form)]
     `(let [~result-sym ~form]
        (macrovich/case
-        :clj (locking lock
-               (tap> [(str t-prefix (trace-str (current-stacktrace)))
+         :clj (locking lock
+                (println
+                 (str prefix
+                      (color/sgr (trace-str (current-stacktrace)) :green) " "
                       (when-not (= ~result-sym '~orig-form)
-                        '~orig-form)
-                      :=>
-                      ~result-sym])
-               ~result-sym)
-        :cljs (do
-                (tap> [t-prefix
+                        (str (puget/pprint-str '~orig-form print-opts) " => "))
+                      (puget/pprint-str ~result-sym print-opts)))
+                (tap> ~result-sym)
+                ~result-sym)
+         :cljs (do
+                 (println
+                  (str prefix " "
                        (when-not (= ~result-sym '~orig-form)
-                         '~orig-form)
-                       :=>
-                       ~result-sym])
-                ~result-sym)))))
+                         (str (zprint/zprint-str '~orig-form print-opts) " => "))
+                       (zprint/zprint-str ~result-sym print-opts)))
+                (tap> ~result-sym)
+                 ~result-sym)))))
