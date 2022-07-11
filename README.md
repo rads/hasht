@@ -2,7 +2,7 @@
 
 This is a fork of [`hashp`](https://github.com/weavejester/hashp) which includes the `#t` reader tag to call `tap>` in addition to printing.
 
-The original library was written by [@weavejester](https://github.com/weavejester) and the [PR for `#t`](https://github.com/weavejester/hashp/pull/16) was provided by [@PEZ](https://github.com/PEZ).
+The original library was written by [@weavejester](https://github.com/weavejester) and the implementation was inspired by a [PR for `#t`](https://github.com/weavejester/hashp/pull/16) from [@PEZ](https://github.com/PEZ).
 
 ## Install
 
