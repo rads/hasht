@@ -6,7 +6,7 @@ The original library was written by [@weavejester](https://github.com/weavejeste
 
 ## Install
 
-Installation is the same as `hashp` except using `com.github.rads/hasht` as the dependency.
+Installation is the same as `hashp` except using `io.github.rads/hasht` as the dependency.
 
 ### Leiningen
 
@@ -14,7 +14,7 @@ Add the following to `~/.lein/profiles.clj`:
 
 ```edn
 {:user
- {:dependencies [[com.github.rads/hasht "0.2.1"]]
+ {:dependencies [[io.github.rads/hasht "0.2.1"]]
   :injections [(require 'hashp.core)]}}
 ```
 
@@ -23,7 +23,7 @@ Add the following to `~/.lein/profiles.clj`:
 Add the following to `~/.boot/profile.boot`:
 
 ```clojure
-(set-env! :dependencies #(conj % '[com.github.rads/hasht "0.2.1"]))
+(set-env! :dependencies #(conj % '[io.github.rads/hasht "0.2.1"]))
 
 (require 'hashp.core)
 (boot.core/load-data-readers!)
@@ -33,7 +33,7 @@ Add the following to `~/.boot/profile.boot`:
 
 Add the following to `shadow-cljs.edn`:
 ```clojure
-{:dependencies [com.github.rads/hasht "0.2.1"]
+{:dependencies [io.github.rads/hasht "0.2.1"]
  :builds {:app {:devtools {:preloads [hashp.core]}}}}
 ```
 
@@ -41,7 +41,7 @@ Or alternatively via `~/.shadow-cljs/config.edn` and `--config-merge`:
 
 `~/.shadow-cljs/config.edn`:
 ```clojure
-{:dependencies [[com.github.rads/hasht "0.2.1"]]}
+{:dependencies [[io.github.rads/hasht "0.2.1"]]}
 ```
 
 Run:
